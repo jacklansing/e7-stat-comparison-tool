@@ -21,13 +21,12 @@ const getData = async url => {
       .then(heroResponses => {
         const heroesWithStats = [];
         heroResponses.forEach(response => {
-          const { name, stats } = response.results[0];
-          heroesWithStats.push({ name: name, stats: stats });
+          heroesWithStats.push(response.results[0]);
         });
         return heroesWithStats;
       })
       .then(heroesWithStats => {
-        fs.appendFileSync("heroes-with-stats.json", JSON.stringify(heroesWithStats));
+        fs.appendFileSync("all-hero-data.json", JSON.stringify(heroesWithStats));
       });
   } catch (error) {
     console.log(error);
