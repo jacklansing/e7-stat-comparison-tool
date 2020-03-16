@@ -27,7 +27,7 @@ const getData = async url => {
         return heroesWithStats;
       })
       .then(heroesWithStats => {
-        fs.appendFileSync("heroes.json", JSON.stringify(heroesWithStats));
+        fs.appendFileSync("heroesWithStats.json", JSON.stringify(heroesWithStats));
       });
   } catch (error) {
     console.log(error);
