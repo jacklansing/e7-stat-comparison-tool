@@ -28,7 +28,7 @@ const HeroCard = ({ hero }) => {
         <li>Crit Dmg: {chd * 100}%</li>
         <li>Dual Attack: {dac * 100}%</li>
         <li>Effectiveness: {eff * 100}%</li>
-        <li>Effect Resis: {efr * 100}%</li>
+        <li>Effect Resist: {efr * 100}%</li>
       </ul>
     </div>
   );
