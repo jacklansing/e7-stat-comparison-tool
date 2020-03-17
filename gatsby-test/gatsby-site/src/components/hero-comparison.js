@@ -1,37 +1,44 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const HeroComparison = ({ heroOne, heroTwo }) => {
-  const { name_H1 } = heroOne;
+  const { name: nameHeroOne } = heroOne;
   const {
-    atk_H1,
-    chc_H1,
-    chd_H1,
-    cp_H1,
-    dac_H1,
-    def_H1,
-    eff_H1,
-    efr_H1,
-    hp_H1,
-    spd_H1,
+    atk: atkHeroOne,
+    chc: chcHeroOne,
+    chd: chdHeroOne,
+    cp: cpHeroOne,
+    dac: dacHeroOne,
+    def: defHeroOne,
+    eff: effHeroOne,
+    efr: efrHeroOne,
+    hp: hpHeroOne,
+    spd: spdHeroOne,
   } = heroOne.stats.maxLevel;
 
-  const { name_H2 } = heroTwo;
+  const { name: nameHeroTwo } = heroTwo;
   const {
-    atk_H2,
-    chc_H2,
-    chd_H2,
-    cp_H2,
-    dac_H2,
-    def_H2,
-    eff_H2,
-    efr_H2,
-    hp_H2,
-    spd_H2,
+    atk: atkHeroTwo,
+    chc: chcHeroTwo,
+    chd: chdHeroTwo,
+    cp: cpHeroTwo,
+    dac: dacHeroTwo,
+    def: defHeroTwo,
+    eff: effHeroTwo,
+    efr: efrHeroTwo,
+    hp: hpHeroTwo,
+    spd: spdHeroTwo,
   } = heroTwo.stats.maxLevel;
 
   return (
     <div>
-      {cp_H1 === cp_H2 ? 'Heroes are the same horoscope and class' : null}
+      {cpHeroOne === cpHeroTwo
+        ? 'Heroes are the same horoscope and class'
+        : null}
+      <p>
+        {spdHeroOne > spdHeroTwo
+          ? `${nameHeroOne} has ${spdHeroOne - spdHeroTwo} more base speed.`
+          : `${nameHeroTwo} has ${spdHeroTwo - spdHeroOne} more base speed.`}
+      </p>
     </div>
   );
 };
