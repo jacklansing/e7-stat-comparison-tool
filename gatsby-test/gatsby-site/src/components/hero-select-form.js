@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FormValidationError from './form-validation-error';
 
 const HeroSelectForm = ({ heroes, onSetHero, className }) => {
   const [name, setName] = useState('');
   const [selected, setSelected] = useState('');
-  onSetHero(selected);
+
+  if (selected) {
+    onSetHero(selected);
+  }
 
   return (
     <form className={className} onSubmit={e => e.preventDefault()}>

@@ -9,7 +9,6 @@ const IndexPage = () => (
     <SEO title="Home" />
     <h1>E7 Hero Comparison</h1>
     <App />
-    <HeroCard />
   </Layout>
 );
 

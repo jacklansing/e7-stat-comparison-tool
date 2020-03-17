@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import useHeroData from '../hooks/use-hero-data';
 import HeroSelectForm from './hero-select-form';
+import HeroCard from './hero-card';
 import './app.css';
 
 const App = () => {
@@ -28,6 +29,8 @@ const App = () => {
         heroes={heroData.allHeroes.heroes.map(hero => hero.name)}
         onSetHero={getHeroTwo}
       />
+      {Object.keys(heroOne).length > 0 && <HeroCard hero={heroOne} />}
+      {Object.keys(heroTwo).length > 0 && <HeroCard hero={heroTwo} />}
     </section>
   );
 };

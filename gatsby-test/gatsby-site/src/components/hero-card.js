@@ -1,29 +1,7 @@
 import React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-const HeroCard = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      heroesWithStatsJson(name: { eq: "Cermia" }) {
-        stats {
-          lv60SixStarFullyAwakened {
-            atk
-            chc
-            chd
-            cp
-            dac
-            def
-            eff
-            efr
-            hp
-            spd
-          }
-        }
-        name
-      }
-    }
-  `);
 
-  const { name } = data.heroesWithStatsJson;
+const HeroCard = ({ hero }) => {
+  const { name } = hero;
   const {
     atk,
     chc,
@@ -35,7 +13,7 @@ const HeroCard = () => {
     efr,
     hp,
     spd,
-  } = data.heroesWithStatsJson.stats.lv60SixStarFullyAwakened;
+  } = hero.stats.maxLevel;
 
   return (
     <div>
@@ -54,6 +32,15 @@ const HeroCard = () => {
       </ul>
     </div>
   );
+};
+
+HeroCard.defaultProps = {
+  hero: {
+    name: '',
+    stats: {
+      maxLevel: {},
+    },
+  },
 };
 
 export default HeroCard;
