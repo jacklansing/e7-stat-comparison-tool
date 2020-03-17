@@ -15,7 +15,7 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
   `;
 
   const selectedRadioStyle = css`
-    background-color: darkblue;
+    background-color: rebeccapurple;
     color: white;
   `;
 
@@ -30,8 +30,10 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
   `;
 
   const textLabelStyles = css`
-    margin-right: 0.45rem;
+    margin-bottom: 0.45rem;
     display: block;
+    font-weight: 600;
+    font-size: 1.25rem;
   `;
 
   const textInputStyles = css`
@@ -52,7 +54,7 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
       onSubmit={e => e.preventDefault()}
     >
       <label css={textLabelStyles} htmlFor={className + '-name'}>
-        Hero Name:{' '}
+        Hero Name:
       </label>
       <input
         css={textInputStyles}
