@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import FormValidationError from './form-validation-error';
 
 const HeroSelectForm = ({ heroes, onSetHero, className }) => {
   const [name, setName] = useState('');
@@ -14,6 +15,7 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
         name="name"
         onChange={e => setName(e.target.value)}
       />
+      {name ? null : <FormValidationError message={'Start typing name'} />}
       {name &&
         heroes
           .filter(hero => hero.includes(name))
