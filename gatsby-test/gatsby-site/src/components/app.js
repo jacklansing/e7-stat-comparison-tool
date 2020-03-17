@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import useHeroData from '../hooks/use-hero-data';
 import HeroSelectForm from './hero-select-form';
 import HeroCard from './hero-card';
+import HeroComparison from './hero-comparison';
 import './app.css';
 
 const App = () => {
@@ -31,6 +32,9 @@ const App = () => {
       />
       {Object.keys(heroOne).length > 0 && <HeroCard hero={heroOne} />}
       {Object.keys(heroTwo).length > 0 && <HeroCard hero={heroTwo} />}
+      {Object.keys(heroOne).length > 0 && Object.keys(heroTwo).length > 0 && (
+        <HeroComparison heroOne={heroOne} heroTwo={heroTwo} />
+      )}
     </section>
   );
 };
