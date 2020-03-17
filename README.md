@@ -8,7 +8,7 @@ All values are based on a completely awakened and max level hero.
 
 The main benefit/idea behind this tool is a quick comparison of speed, however other stats have been included as well.
 
-Many thanks to the api hosted by [https://epicsevendb.com/](https://epicsevendb.com/) for making this data available for everyone to use.
+Many thanks to [https://epicsevendb.com/](https://epicsevendb.com/) for making their API available for everyone to use.
 
 ## About
 
