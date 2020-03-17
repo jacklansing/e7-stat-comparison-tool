@@ -11,11 +11,11 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
 
   return (
     <form className={className} onSubmit={e => e.preventDefault()}>
-      <label htmlFor="name">Hero Name: </label>
+      <label htmlFor={className + '-name'}>Hero Name: </label>
       <input
         type="text"
-        id="name"
-        name="name"
+        id={className + '-name'}
+        name={className + '-name'}
         onChange={e => setName(e.target.value)}
       />
       {name.length > 1 ? null : (
