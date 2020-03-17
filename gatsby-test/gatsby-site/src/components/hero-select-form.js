@@ -14,22 +14,22 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
         name="name"
         onChange={e => setName(e.target.value)}
       />
-
-      {heroes
-        .filter(hero => hero.includes(name))
-        .map(hero => (
-          <div key={hero}>
-            <label>
-              <input
-                type="radio"
-                name="selected-hero"
-                value={hero}
-                onChange={e => setSelected(e.target.value)}
-              />
-              {hero}
-            </label>
-          </div>
-        ))}
+      {name &&
+        heroes
+          .filter(hero => hero.includes(name))
+          .map(hero => (
+            <div key={hero}>
+              <label>
+                <input
+                  type="radio"
+                  name="selected-hero"
+                  value={hero}
+                  onChange={e => setSelected(e.target.value)}
+                />
+                {hero}
+              </label>
+            </div>
+          ))}
     </form>
   );
 };
