@@ -4,7 +4,7 @@ import { css } from '@emotion/core';
 const cardStyles = css`
   border: 1px solid black;
   padding: 1rem;
-  margin-right: 0.5rem;
+  margin-bottom: 1rem;
 `;
 
 const listStyles = css`

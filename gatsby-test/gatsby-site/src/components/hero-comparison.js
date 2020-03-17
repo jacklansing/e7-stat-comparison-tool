@@ -5,7 +5,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
   const {
     atk: atkHeroOne,
     chc: chcHeroOne,
-    // chd: chdHeroOne,
+    chd: chdHeroOne,
     cp: cpHeroOne,
     // dac: dacHeroOne,
     def: defHeroOne,
@@ -19,7 +19,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
   const {
     atk: atkHeroTwo,
     chc: chcHeroTwo,
-    // chd: chdHeroTwo,
+    chd: chdHeroTwo,
     cp: cpHeroTwo,
     // dac: dacHeroTwo,
     def: defHeroTwo,
@@ -54,6 +54,15 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
                   chcHeroTwo * 100}% more base crit rate.`
               : `${nameHeroTwo} has ${chcHeroTwo * 100 -
                   chcHeroOne * 100}% more base crit rate.`}
+          </p>
+          <p>
+            {chdHeroOne !== chdHeroTwo
+              ? chdHeroOne > chdHeroTwo
+                ? `${nameHeroOne} has ${chdHeroOne * 100 -
+                    chdHeroTwo * 100}% more base crit damage.`
+                : `${nameHeroTwo} has ${chdHeroTwo * 100 -
+                    chdHeroOne * 100}% more base crit damage.`
+              : null}
           </p>
           <p>
             {hpHeroOne > hpHeroTwo
