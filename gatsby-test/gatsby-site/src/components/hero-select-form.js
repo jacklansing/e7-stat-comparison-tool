@@ -66,7 +66,7 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
       )}
       {name.length > 1 &&
         heroes
-          .filter(hero => hero.includes(name))
+          .filter(hero => hero.toLowerCase().includes(name.toLowerCase()))
           .map(hero => (
             <label
               key={hero}
