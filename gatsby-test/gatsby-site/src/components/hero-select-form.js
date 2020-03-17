@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import FormValidationError from './form-validation-error';
 
 const HeroSelectForm = ({ heroes, onSetHero, className }) => {
