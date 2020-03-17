@@ -42,6 +42,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
     font-size: 1.25rem;
     font-family: sans-serif;
     margin: 0;
+    margin-bottom: 2rem;
 
     > li {
       margin-bottom: 1rem;
