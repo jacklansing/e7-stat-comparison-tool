@@ -3,11 +3,11 @@ import { useStaticQuery, graphql } from 'gatsby';
 const useHeroData = () => {
   const data = useStaticQuery(graphql`
     query {
-      allHeroesWithStatsJson {
-        nodes {
+      allHeroes: allHeroesWithStatsJson {
+        heroes: nodes {
           name
           stats {
-            lv60SixStarFullyAwakened {
+            maxLevel: lv60SixStarFullyAwakened {
               atk
               chc
               chd
