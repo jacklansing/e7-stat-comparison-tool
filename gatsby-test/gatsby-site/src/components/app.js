@@ -3,6 +3,7 @@ import useHeroData from '../hooks/use-hero-data';
 import HeroSelectForm from './hero-select-form';
 import HeroCard from './hero-card';
 import HeroComparison from './hero-comparison';
+import { css } from '@emotion/core';
 
 const App = () => {
   const [heroOne, setHeroOne] = useState({});
@@ -17,8 +18,16 @@ const App = () => {
     setHeroTwo(heroData.allHeroes.heroes.find(hero => hero.name === heroName));
   };
 
+  const appLayoutStyles = css`
+    @media screen and (min-width: 600px) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0 1rem;
+    }
+  `;
+
   return (
-    <section className="App">
+    <section className="App" css={appLayoutStyles}>
       <HeroSelectForm
         className="form1"
         heroes={heroData.allHeroes.heroes.map(hero => hero.name)}
