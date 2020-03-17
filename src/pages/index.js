@@ -6,7 +6,6 @@ import App from '../components/app';
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <h1>E7 Hero Comparison</h1>
     <App />
   </Layout>
 );

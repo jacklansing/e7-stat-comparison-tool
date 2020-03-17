@@ -16,4 +16,4 @@ Built with [https://www.gatsbyjs.org/](https://www.gatsbyjs.org/) and taking adv
 
 That data is then added to the [graphql](https://www.gatsbyjs.org/docs/graphql-concepts/) layer of Gatsby via `gatsby-source-filesystem` and is accessed via the `useStaticQuery` hook.
 
-What this means for us is a super responsive filter & comparison tool that doesn't force us to hammer the E7 API making multiple calls for heroes, or making calls for data we don't need/use.
+What this means for us is a super responsive filter & comparison tool that doesn't force us to hammer the E7 API making multiple calls for heroes, or making calls that include data we don't need/use.
