@@ -57,10 +57,20 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
     font-size: 1.5rem;
   `;
 
+  const sameTypeError = css`
+    font-size: 1.75rem;
+    color: darkred;
+    line-height: 1.2;
+    text-align: center;
+  `;
+
   return (
     <>
       {cpHeroOne === cpHeroTwo ? (
-        <p>'Heroes are the same horoscope and class'</p>
+        <p css={sameTypeError}>
+          Heroes are the same horoscope and class. Their stats are the same. Try
+          a different combo!
+        </p>
       ) : (
         <ul css={comparisonListStyles}>
           {spdHeroOne > spdHeroTwo ? (
