@@ -18,8 +18,10 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
         name="name"
         onChange={e => setName(e.target.value)}
       />
-      {name ? null : <FormValidationError message={'Start typing name'} />}
-      {name &&
+      {name.length > 1 ? null : (
+        <FormValidationError message={'Start typing name (at least 2 chars)'} />
+      )}
+      {name.length > 1 &&
         heroes
           .filter(hero => hero.includes(name))
           .map(hero => (
