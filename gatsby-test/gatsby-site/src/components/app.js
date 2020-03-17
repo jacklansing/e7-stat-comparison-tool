@@ -3,7 +3,6 @@ import useHeroData from '../hooks/use-hero-data';
 import HeroSelectForm from './hero-select-form';
 import HeroCard from './hero-card';
 import HeroComparison from './hero-comparison';
-import './app.css';
 
 const App = () => {
   const [heroOne, setHeroOne] = useState({});

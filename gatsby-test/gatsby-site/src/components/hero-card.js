@@ -1,4 +1,15 @@
 import React from 'react';
+import { css } from '@emotion/core';
+
+const cardStyles = css`
+  border: 1px solid black;
+  padding: 1rem;
+  margin-right: 0.5rem;
+`;
+
+const listStyles = css`
+  list-style-type: none;
+`;
 
 const HeroCard = ({ hero }) => {
   const { name } = hero;
@@ -16,10 +27,10 @@ const HeroCard = ({ hero }) => {
   } = hero.stats.maxLevel;
 
   return (
-    <div>
+    <div css={cardStyles}>
       <h1>{name}</h1>
       <h2>Base CP: {cp}</h2>
-      <ul>
+      <ul css={listStyles}>
         <li>Atttack: {atk}</li>
         <li>Health: {hp}</li>
         <li>Speed: {spd}</li>
