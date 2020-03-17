@@ -44,6 +44,11 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
     margin: 0;
     margin-bottom: 2rem;
 
+    @media screen and (min-width: 600px) {
+      grid-column: 1 / -1;
+      justify-self: center;
+    }
+
     > li {
       margin-bottom: 1rem;
     }
