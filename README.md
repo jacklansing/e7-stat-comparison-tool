@@ -12,7 +12,7 @@ Many thanks to the api hosted by [https://epicsevendb.com/](https://epicsevendb.
 
 ## About
 
-Build with [https://www.gatsbyjs.org/](https://www.gatsbyjs.org/) and taking advantage of `gatsby-transformer-json`, this app stores _only_ the data it needs to run as a static JSON file.
+Built with [https://www.gatsbyjs.org/](https://www.gatsbyjs.org/) and taking advantage of `gatsby-transformer-json`, this app stores _only_ the data it needs to run as a static JSON file.
 
 That data is then added to the [graphql](https://www.gatsbyjs.org/docs/graphql-concepts/) layer of Gatsby via `gatsby-source-filesystem` and is accessed via the `useStaticQuery` hook.
 
