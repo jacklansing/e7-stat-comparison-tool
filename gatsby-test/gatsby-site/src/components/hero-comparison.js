@@ -35,10 +35,26 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
 
   const comparisonListStyles = css`
     list-style-type: none;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 1px 3px 3px lightgray;
+    padding: 0.75rem;
+    font-size: 1.25rem;
+    font-family: sans-serif;
+    margin: 0;
+
+    > li {
+      margin-bottom: 1rem;
+    }
 
     > li > span {
       font-weight: 600;
     }
+  `;
+
+  const stat = css`
+    color: darkgreen;
+    font-size: 1.5rem;
   `;
 
   return (
@@ -49,37 +65,39 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
         <ul css={comparisonListStyles}>
           {spdHeroOne > spdHeroTwo ? (
             <li>
-              <span>{nameHeroOne}</span> has {spdHeroOne - spdHeroTwo} more base
-              speed
+              <span>{nameHeroOne}</span> has{' '}
+              <span css={stat}>{spdHeroOne - spdHeroTwo}</span> more base speed
             </li>
           ) : (
             <li>
-              <span>{nameHeroTwo}</span> has {spdHeroTwo - spdHeroOne} more base
-              speed
+              <span>{nameHeroTwo}</span> has{' '}
+              <span css={stat}>{spdHeroTwo - spdHeroOne}</span> more base speed
             </li>
           )}
 
           {atkHeroOne > atkHeroTwo ? (
             <li>
-              <span>{nameHeroOne}</span> has {atkHeroOne - atkHeroTwo} more base
-              attack
+              <span>{nameHeroOne}</span> has{' '}
+              <span css={stat}>{atkHeroOne - atkHeroTwo}</span> more base attack
             </li>
           ) : (
             <li>
-              <span>{nameHeroTwo}</span> has {atkHeroTwo - atkHeroOne} more base
-              attack
+              <span>{nameHeroTwo}</span> has{' '}
+              <span css={stat}>{atkHeroTwo - atkHeroOne}</span> more base attack
             </li>
           )}
 
           {chcHeroOne > chcHeroTwo ? (
             <li>
               <span>{nameHeroOne}</span> has{' '}
-              {chcHeroOne * 100 - chcHeroTwo * 100}% more base crit rate
+              <span css={stat}>{chcHeroOne * 100 - chcHeroTwo * 100}%</span>{' '}
+              more base crit rate
             </li>
           ) : (
             <li>
               <span>{nameHeroTwo}</span> has{' '}
-              {chcHeroTwo * 100 - chcHeroOne * 100}% more base crit rate
+              <span css={stat}>{chcHeroTwo * 100 - chcHeroOne * 100}%</span>{' '}
+              more base crit rate
             </li>
           )}
 
@@ -88,12 +106,14 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
               {chdHeroOne > chdHeroTwo ? (
                 <li>
                   <span>{nameHeroOne}</span> has{' '}
-                  {chdHeroOne * 100 - chdHeroTwo * 100}% more base crit damage
+                  <span css={stat}>{chdHeroOne * 100 - chdHeroTwo * 100}%</span>{' '}
+                  more base crit damage
                 </li>
               ) : (
                 <li>
                   <span>{nameHeroTwo}</span> has{' '}
-                  {chdHeroTwo * 100 - chdHeroOne * 100}% more base crit damage
+                  <span css={stat}>{chdHeroTwo * 100 - chdHeroOne * 100}%</span>{' '}
+                  more base crit damage
                 </li>
               )}
             </>
@@ -101,24 +121,26 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
 
           {hpHeroOne > hpHeroTwo ? (
             <li>
-              <span>{nameHeroOne}</span> has {hpHeroOne - hpHeroTwo} more base
-              health
+              <span>{nameHeroOne}</span> has{' '}
+              <span css={stat}>{hpHeroOne - hpHeroTwo}</span> more base health
             </li>
           ) : (
             <li>
-              <span>{nameHeroTwo}</span> has {hpHeroTwo - hpHeroOne} more base
-              health
+              <span>{nameHeroTwo}</span> has{' '}
+              <span css={stat}>{hpHeroTwo - hpHeroOne}</span> more base health
             </li>
           )}
 
           {defHeroOne > defHeroTwo ? (
             <li>
-              <span>{nameHeroOne}</span> has {defHeroOne - defHeroTwo} more base
+              <span>{nameHeroOne}</span> has{' '}
+              <span css={stat}>{defHeroOne - defHeroTwo}</span> more base
               defense
             </li>
           ) : (
             <li>
-              <span>{nameHeroTwo}</span> has {defHeroTwo - defHeroOne} more base
+              <span>{nameHeroTwo}</span> has{' '}
+              <span css={stat}>{defHeroTwo - defHeroOne}</span> more base
               defense
             </li>
           )}
