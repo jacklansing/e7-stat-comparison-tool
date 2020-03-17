@@ -15,7 +15,7 @@ const HeroSelectForm = ({ heroes, onSetHero, className }) => {
   `;
 
   const selectedRadioStyle = css`
-    background-color: rebeccapurple;
+    background-color: #a22d8c;
     color: white;
   `;
 
