@@ -30,55 +30,58 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
   } = heroTwo.stats.maxLevel;
 
   return (
-    <div>
+    <>
       {cpHeroOne === cpHeroTwo ? (
-        'Heroes are the same horoscope and class'
+        <p>'Heroes are the same horoscope and class'</p>
       ) : (
-        <>
-          <p>
+        <ul>
+          <li>
             {spdHeroOne > spdHeroTwo
               ? `${nameHeroOne} has ${spdHeroOne - spdHeroTwo} more base speed.`
               : `${nameHeroTwo} has ${spdHeroTwo -
                   spdHeroOne} more base speed.`}
-          </p>
-          <p>
+          </li>
+          <li>
             {atkHeroOne > atkHeroTwo
               ? `${nameHeroOne} has ${atkHeroOne -
                   atkHeroTwo} more base attack.`
               : `${nameHeroTwo} has ${atkHeroTwo -
                   atkHeroOne} more base attack.`}
-          </p>
-          <p>
+          </li>
+          <li>
             {chcHeroOne > chcHeroTwo
               ? `${nameHeroOne} has ${chcHeroOne * 100 -
                   chcHeroTwo * 100}% more base crit rate.`
               : `${nameHeroTwo} has ${chcHeroTwo * 100 -
                   chcHeroOne * 100}% more base crit rate.`}
-          </p>
-          <p>
-            {chdHeroOne !== chdHeroTwo
-              ? chdHeroOne > chdHeroTwo
-                ? `${nameHeroOne} has ${chdHeroOne * 100 -
-                    chdHeroTwo * 100}% more base crit damage.`
+          </li>
+
+          {chdHeroOne !== chdHeroTwo ? (
+            <li>
+              {chdHeroOne > chdHeroTwo
+                ? `${nameHeroOne} has $
+              {chdHeroOne * 100 - chdHeroTwo * 100}% more base crit damage.`
                 : `${nameHeroTwo} has ${chdHeroTwo * 100 -
-                    chdHeroOne * 100}% more base crit damage.`
-              : null}
-          </p>
-          <p>
+                    chdHeroOne * 100}% more
+              base crit damage.`}
+            </li>
+          ) : null}
+
+          <li>
             {hpHeroOne > hpHeroTwo
               ? `${nameHeroOne} has ${hpHeroOne - hpHeroTwo} more base health.`
               : `${nameHeroTwo} has ${hpHeroTwo - hpHeroOne} more base health.`}
-          </p>
-          <p>
+          </li>
+          <li>
             {defHeroOne > defHeroTwo
               ? `${nameHeroOne} has ${defHeroOne -
                   defHeroTwo} more base defense.`
               : `${nameHeroTwo} has ${defHeroTwo -
                   defHeroOne} more base defense.`}
-          </p>
-        </>
+          </li>
+        </ul>
       )}
-    </div>
+    </>
   );
 };
 
