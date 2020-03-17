@@ -2,6 +2,8 @@
 
 Quick proof of concept for a hero comparison tool.
 
+Check out a live preview at [https://e7-compare.netlify.com/](https://e7-compare.netlify.com/)
+
 All values are based on a completely awakened and max level hero.
 
 The main benefit/idea behind this tool is a quick comparison of speed, however other stats have been included as well.
