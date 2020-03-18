@@ -64,10 +64,13 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
   `;
 
   const sameTypeError = css`
+    grid-column: 1 / -1;
     font-size: 1.75rem;
     color: darkred;
     line-height: 1.2;
     text-align: center;
+    font-family: sans-serif;
+    padding: 1rem;
   `;
 
   return (
