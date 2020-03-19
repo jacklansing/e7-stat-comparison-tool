@@ -59,11 +59,6 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
     }
   `;
 
-  const stat = css`
-    color: darkgreen;
-    font-size: 1.5rem;
-  `;
-
   const sameTypeError = css`
     grid-column: 1 / -1;
     font-size: 1.75rem;
