@@ -1,37 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/core';
+import StatCompare from './stat-compare';
 
 const HeroComparison = ({ heroOne, heroTwo }) => {
-  /* Commented out stats that are always the same. For now they are
- left out as it seems redundant */
-
-  const { name: nameHeroOne } = heroOne;
-  const {
-    atk: atkHeroOne,
-    chc: chcHeroOne,
-    chd: chdHeroOne,
-    cp: cpHeroOne,
-    // dac: dacHeroOne,
-    def: defHeroOne,
-    // eff: effHeroOne,
-    // efr: efrHeroOne,
-    hp: hpHeroOne,
-    spd: spdHeroOne,
-  } = heroOne.stats.maxLevel;
-
-  const { name: nameHeroTwo } = heroTwo;
-  const {
-    atk: atkHeroTwo,
-    chc: chcHeroTwo,
-    chd: chdHeroTwo,
-    cp: cpHeroTwo,
-    // dac: dacHeroTwo,
-    def: defHeroTwo,
-    // eff: effHeroTwo,
-    // efr: efrHeroTwo,
-    hp: hpHeroTwo,
-    spd: spdHeroTwo,
-  } = heroTwo.stats.maxLevel;
+  const statsToCompare = ['spd', 'atk', 'chc', 'chd', 'def', 'hp'];
 
   const comparisonListStyles = css`
     list-style-type: none;
@@ -58,11 +30,6 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
     }
   `;
 
-  const stat = css`
-    color: darkgreen;
-    font-size: 1.5rem;
-  `;
-
   const sameTypeError = css`
     grid-column: 1 / -1;
     font-size: 1.75rem;
@@ -75,94 +42,26 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
 
   return (
     <>
-      {cpHeroOne === cpHeroTwo ? (
+      {heroOne.stats.maxLevel.cp === heroTwo.stats.maxLevel.cp ? (
         <p css={sameTypeError}>
           Heroes are the same horoscope and class. Their stats are the same. Try
           a different combo!
         </p>
       ) : (
         <ul css={comparisonListStyles}>
-          {spdHeroOne > spdHeroTwo ? (
-            <li>
-              <span>{nameHeroOne}</span> has{' '}
-              <span css={stat}>{spdHeroOne - spdHeroTwo}</span> more base speed
-            </li>
-          ) : (
-            <li>
-              <span>{nameHeroTwo}</span> has{' '}
-              <span css={stat}>{spdHeroTwo - spdHeroOne}</span> more base speed
-            </li>
-          )}
-
-          {atkHeroOne > atkHeroTwo ? (
-            <li>
-              <span>{nameHeroOne}</span> has{' '}
-              <span css={stat}>{atkHeroOne - atkHeroTwo}</span> more base attack
-            </li>
-          ) : (
-            <li>
-              <span>{nameHeroTwo}</span> has{' '}
-              <span css={stat}>{atkHeroTwo - atkHeroOne}</span> more base attack
-            </li>
-          )}
-
-          {chcHeroOne > chcHeroTwo ? (
-            <li>
-              <span>{nameHeroOne}</span> has{' '}
-              <span css={stat}>{chcHeroOne * 100 - chcHeroTwo * 100}%</span>{' '}
-              more base crit rate
-            </li>
-          ) : (
-            <li>
-              <span>{nameHeroTwo}</span> has{' '}
-              <span css={stat}>{chcHeroTwo * 100 - chcHeroOne * 100}%</span>{' '}
-              more base crit rate
-            </li>
-          )}
-
-          {chdHeroOne !== chdHeroTwo ? (
-            <>
-              {chdHeroOne > chdHeroTwo ? (
-                <li>
-                  <span>{nameHeroOne}</span> has{' '}
-                  <span css={stat}>{chdHeroOne * 100 - chdHeroTwo * 100}%</span>{' '}
-                  more base crit damage
-                </li>
-              ) : (
-                <li>
-                  <span>{nameHeroTwo}</span> has{' '}
-                  <span css={stat}>{chdHeroTwo * 100 - chdHeroOne * 100}%</span>{' '}
-                  more base crit damage
-                </li>
-              )}
-            </>
-          ) : null}
-
-          {hpHeroOne > hpHeroTwo ? (
-            <li>
-              <span>{nameHeroOne}</span> has{' '}
-              <span css={stat}>{hpHeroOne - hpHeroTwo}</span> more base health
-            </li>
-          ) : (
-            <li>
-              <span>{nameHeroTwo}</span> has{' '}
-              <span css={stat}>{hpHeroTwo - hpHeroOne}</span> more base health
-            </li>
-          )}
-
-          {defHeroOne > defHeroTwo ? (
-            <li>
-              <span>{nameHeroOne}</span> has{' '}
-              <span css={stat}>{defHeroOne - defHeroTwo}</span> more base
-              defense
-            </li>
-          ) : (
-            <li>
-              <span>{nameHeroTwo}</span> has{' '}
-              <span css={stat}>{defHeroTwo - defHeroOne}</span> more base
-              defense
-            </li>
-          )}
+          {statsToCompare.map(stat => {
+            const heroOneStats = heroOne.stats.maxLevel;
+            const heroTwoStats = heroTwo.stats.maxLevel;
+            return (
+              <StatCompare
+                statType={stat}
+                heroOneStat={heroOneStats[stat]}
+                heroTwoStat={heroTwoStats[stat]}
+                heroOneName={heroOne.name}
+                heroTwoName={heroTwo.name}
+              />
+            );
+          })}
         </ul>
       )}
     </>
