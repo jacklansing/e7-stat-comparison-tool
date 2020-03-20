@@ -3,36 +3,7 @@ import { css } from '@emotion/core';
 import StatCompare from './stat-compare';
 
 const HeroComparison = ({ heroOne, heroTwo }) => {
-  /* Commented out stats that are always the same. For now they are
- left out as it seems redundant */
-
-  const { name: nameHeroOne } = heroOne;
-  const {
-    atk: atkHeroOne,
-    chc: chcHeroOne,
-    chd: chdHeroOne,
-    cp: cpHeroOne,
-    // dac: dacHeroOne,
-    def: defHeroOne,
-    // eff: effHeroOne,
-    // efr: efrHeroOne,
-    hp: hpHeroOne,
-    spd: spdHeroOne,
-  } = heroOne.stats.maxLevel;
-
-  const { name: nameHeroTwo } = heroTwo;
-  const {
-    atk: atkHeroTwo,
-    chc: chcHeroTwo,
-    chd: chdHeroTwo,
-    cp: cpHeroTwo,
-    // dac: dacHeroTwo,
-    def: defHeroTwo,
-    // eff: effHeroTwo,
-    // efr: efrHeroTwo,
-    hp: hpHeroTwo,
-    spd: spdHeroTwo,
-  } = heroTwo.stats.maxLevel;
+  const statReference = ['spd', 'atk', 'chc', 'chd', 'def', 'hp'];
 
   const comparisonListStyles = css`
     list-style-type: none;
@@ -71,55 +42,26 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
 
   return (
     <>
-      {cpHeroOne === cpHeroTwo ? (
+      {heroOne.stats.maxLevel.cp === heroTwo.stats.maxLevel.cp ? (
         <p css={sameTypeError}>
           Heroes are the same horoscope and class. Their stats are the same. Try
           a different combo!
         </p>
       ) : (
         <ul css={comparisonListStyles}>
-          <StatCompare
-            statType="spd"
-            heroOneStat={spdHeroOne}
-            heroTwoStat={spdHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
-          <StatCompare
-            statType="atk"
-            heroOneStat={atkHeroOne}
-            heroTwoStat={atkHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
-          <StatCompare
-            statType="chc"
-            heroOneStat={chcHeroOne}
-            heroTwoStat={chcHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
-          <StatCompare
-            statType="chd"
-            heroOneStat={chdHeroOne}
-            heroTwoStat={chdHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
-          <StatCompare
-            statType="hp"
-            heroOneStat={hpHeroOne}
-            heroTwoStat={hpHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
-          <StatCompare
-            statType="def"
-            heroOneStat={defHeroOne}
-            heroTwoStat={defHeroTwo}
-            heroOneName={nameHeroOne}
-            heroTwoName={nameHeroTwo}
-          />
+          {statReference.map(stat => {
+            const heroOneStats = heroOne.stats.maxLevel;
+            const heroTwoStats = heroTwo.stats.maxLevel;
+            return (
+              <StatCompare
+                statType={stat}
+                heroOneStat={heroOneStats[stat]}
+                heroTwoStat={heroTwoStats[stat]}
+                heroOneName={heroOne.name}
+                heroTwoName={heroTwo.name}
+              />
+            );
+          })}
         </ul>
       )}
     </>
