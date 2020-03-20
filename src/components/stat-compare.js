@@ -23,10 +23,10 @@ const StatCompare = props => {
     spd: 'base speed',
   };
 
-  //If stat is less than one, we know its represented as a percentage in game
+  //If stat is less than two, we know its represented as a percentage in game
   //so we multiply it by 100 and add a percent sign
 
-  if (heroOneStat < 1) {
+  if (heroOneStat < 2) {
     heroOneStat *= 100;
     heroTwoStat *= 100;
     isPercentage = true;

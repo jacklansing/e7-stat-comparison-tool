@@ -54,6 +54,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
             const heroTwoStats = heroTwo.stats.maxLevel;
             return (
               <StatCompare
+                key={stat}
                 statType={stat}
                 heroOneStat={heroOneStats[stat]}
                 heroTwoStat={heroTwoStats[stat]}
