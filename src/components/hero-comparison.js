@@ -3,7 +3,7 @@ import { css } from '@emotion/core';
 import StatCompare from './stat-compare';
 
 const HeroComparison = ({ heroOne, heroTwo }) => {
-  const statReference = ['spd', 'atk', 'chc', 'chd', 'def', 'hp'];
+  const statsToCompare = ['spd', 'atk', 'chc', 'chd', 'def', 'hp'];
 
   const comparisonListStyles = css`
     list-style-type: none;
@@ -49,7 +49,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
         </p>
       ) : (
         <ul css={comparisonListStyles}>
-          {statReference.map(stat => {
+          {statsToCompare.map(stat => {
             const heroOneStats = heroOne.stats.maxLevel;
             const heroTwoStats = heroTwo.stats.maxLevel;
             return (
