@@ -22,18 +22,7 @@ const listStyles = css`
 
 const HeroCard = ({ hero }) => {
   const { name } = hero;
-  const {
-    atk,
-    chc,
-    chd,
-    cp,
-    dac,
-    def,
-    eff,
-    efr,
-    hp,
-    spd,
-  } = hero.stats.maxLevel;
+  const { atk, chc, chd, cp, dac, def, eff, efr, hp, spd } = hero.stats;
 
   return (
     <div css={cardStyles}>

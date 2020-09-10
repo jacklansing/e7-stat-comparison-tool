@@ -7,18 +7,16 @@ const useHeroData = () => {
         heroes: nodes {
           name
           stats {
-            maxLevel: lv60SixStarFullyAwakened {
-              atk
-              chc
-              chd
-              cp
-              dac
-              def
-              eff
-              efr
-              hp
-              spd
-            }
+            atk
+            chc
+            chd
+            cp
+            dac
+            def
+            eff
+            efr
+            hp
+            spd
           }
         }
       }

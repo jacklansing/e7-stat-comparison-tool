@@ -42,7 +42,7 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
 
   return (
     <>
-      {heroOne.stats.maxLevel.cp === heroTwo.stats.maxLevel.cp ? (
+      {heroOne.stats.cp === heroTwo.stats.cp ? (
         <p css={sameTypeError}>
           Heroes are the same horoscope and class. Their stats are the same. Try
           a different combo!
@@ -50,8 +50,8 @@ const HeroComparison = ({ heroOne, heroTwo }) => {
       ) : (
         <ul css={comparisonListStyles}>
           {statsToCompare.map(stat => {
-            const heroOneStats = heroOne.stats.maxLevel;
-            const heroTwoStats = heroTwo.stats.maxLevel;
+            const heroOneStats = heroOne.stats;
+            const heroTwoStats = heroTwo.stats;
             return (
               <StatCompare
                 key={stat}
